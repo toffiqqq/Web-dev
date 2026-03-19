@@ -1,4 +1,4 @@
-from models import Car, Truck
+from model import Car, Truck
 
 
 def main():
@@ -9,8 +9,8 @@ def main():
 
     for v in vehicles:
         print(v)
-        print(v.get_vehicle_info())
-        print("Delivery cost:", v.calculate_delivery_cost())
+        print(v.getVehicleInfo())
+        print("Delivery cost:", v.calculateDeliveryCost())
 
 
 if __name__ == "__main__":
