@@ -1,29 +1,36 @@
-class Vehicle:
-    def __init__(self, brand, model, year):
-        self.brand = brand
+class Vehicle():
+    def __init__(self, model, base_cost):
         self.model = model
-        self.year = year
+        self.base_cost = base_cost
 
-    def start(self):
-        return f"{self.brand} {self.model} is starting."
+    def calculateDeliveryCost(self):
+        return self.base_cost
 
-    def getInfo(self):
-        return f"{self.brand} {self.model} {self.year}"
-
-    def __str__(self):
-        return f"Vehicle: {self.brand} {self.model} {self.year}"
+    def getVehicleInfo(self):
+        return f"Model: {self.model}\nCost: {self.base_cost}"
 
 
 class Car(Vehicle):
-    def __init__(self, brand, model, year, doors):
-        super().__init__(brand, model, year)
-        self.doors = doors
+    def __init__(self, model, base_cost, number_of_seats):
+        super().__init__(model, base_cost)
+        self.number_of_seats = number_of_seats
 
-    def start(self):
-        return f"Car {self.brand} {self.model} starts with a car engine."
+    def calculateDeliveryCost(self, extra_weight=0):
+        return super().calculateDeliveryCost() + extra_weight
 
-    def honk(self):
-        return f"{self.brand} {self.model} says: Beep beep!"
+    def getVehicleInfo(self):
+        return super().getVehicleInfo() + \
+               f"\nNumber of seats: {self.number_of_seats}"
 
-    def __str__(self):
-        return f"Car: {self.brand} {self.model} {self.year}, Doors: {self.doors}"
+
+class Truck(Vehicle):
+    def __init__(self, model, base_cost, max_load):
+        super().__init__(model, base_cost)
+        self.max_load = max_load
+
+    def calculateDeliveryCost(self, distance=0, fuel_price=0):
+        return super().calculate_delivery_cost() + distance + fuel_price
+
+    def getVehicleInfo(self):
+        return super().getVehicleInfo() + \
+               f"\nMax load: {self.max_load}"

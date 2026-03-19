@@ -1,18 +1,16 @@
-from model import Vehicle, Car
+from models import Car, Truck
+
 
 def main():
-    v1 = Vehicle("Toyota", "Camry", 2020)
-    c1 = Car("BMW", "M5", 2022, 4)
+    car = Car("BMW M5", 5000, 4)
+    truck = Truck("Volvo FH16", 10000, 20)
 
-    vehicles = [v1, c1,]
+    vehicles = [car, truck]
 
     for v in vehicles:
         print(v)
-        print(v.getInfo())
-        print(v.start())
-
-        if isinstance(v, Car):
-            print(v.honk())
+        print(v.get_vehicle_info())
+        print("Delivery cost:", v.calculate_delivery_cost())
 
 
 if __name__ == "__main__":
