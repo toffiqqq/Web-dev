@@ -29,7 +29,7 @@ class Truck(Vehicle):
         self.max_load = max_load
 
     def calculateDeliveryCost(self, distance=0, fuel_price=0):
-        return super().calculate_delivery_cost() + distance + fuel_price
+        return super().calculateDeliveryCost() + distance + fuel_price
 
     def getVehicleInfo(self):
         return super().getVehicleInfo() + \
